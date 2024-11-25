@@ -1,0 +1,30 @@
+{% extends 'userapp/base.html' %}
+{% block parent_block %}
+
+    <h1 align="center">Product List</h1>
+    <table align="center" class="table table-dark">
+        <th>S.No</th>
+        <th>Product name</th>
+        <th>Description</th>
+        <th>Tag</th>
+        <th>Category</th>
+        <th> Image</th>
+        <th>Action</th>
+        {% if products %}
+            {% for product in products %}
+                <tr>
+                    <td>{{ forloop.counter }}</td>
+                    <td>{{ product.product_name }}</td>
+                    <td>{{ product.description }}</td>
+                    <td>{{ product.tags.all|join:", " }}</td>
+                    <td>{{ product.category }}</td>
+                    <td><img src="{{ product.image.url }}" alt="" width=150px></td>
+                    <td><a href="/update-product/{{ product.id }}">Update</a> / <a
+                            href="/delete-product/{{ product.id }}">Delete</a>
+                    </td>
+                </tr>
+            {% endfor %}
+        {% endif %}
+    </table>
+    <a href="/create-product" class="btn btn-primary">Add new Product</a>
+{% endblock %}

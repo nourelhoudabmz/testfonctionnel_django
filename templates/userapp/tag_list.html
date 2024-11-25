@@ -1,0 +1,23 @@
+{% extends 'userapp/base.html' %}
+{% load crispy_forms_tags %}
+{% block parent_block %}
+
+    <h1 align="center">Tag List</h1>
+    <table class="table table-dark">
+        <th>S.No.</th>
+        <th>Tags</th>
+        <th>Action</th>
+        {% if tags %}
+            {% for tag in tags %}
+                <tr>
+                    <td>{{ forloop.counter }}</td>
+                    <td>{{ tag.tag_name }}</td>
+                    <td><a href="/update-tag/{{ tag.id }}">Update</a> /
+                        <a href="/delete-tag/{{ tag.id }}">Delete</a></td>
+                </tr>
+            {% endfor %}
+        {% endif %}
+    </table>
+
+    <a href="/create-tag" class="btn btn-primary">Add new Tag</a>
+{% endblock %}

@@ -1,0 +1,12 @@
+.idea
+venv
+.env
+db.sqlite3
+*.pyc
+*.jpg
+*.jpeg
+*.png
+**/migrations/**
+!**/migrations
+!**/migrations/__init__.py
+**/migrations/__init__.py

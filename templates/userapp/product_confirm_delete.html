@@ -1,0 +1,14 @@
+{% extends 'userapp/base.html' %}
+{% load crispy_forms_tags %}
+{% block parent_block %}
+
+
+    <form class="" method="post">
+        {{ form }}
+        {% csrf_token %}
+        Do you want to delete the '{{ product.product_name }}' Product?<br>
+        <button type="submit" name="button" class="btn btn-danger">Delete</button>
+        <a href="/all-product" class="btn btn-info">Cancel</a>
+
+    </form>
+{% endblock %}

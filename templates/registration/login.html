@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+{% load static %}
+{% load crispy_forms_tags %}
+
+<html lang="en" dir="ltr">
+<head>
+    <meta charset="utf-8">
+    <title>Login Form Page</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+          integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <style media="screen">
+
+        body {
+            font-family: inherit;
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+
+        .form {
+            margin-left: 350px;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+        <h1 style="text-shadow:grey;" align=center>Login</h1>
+        <div class="col-lg-5 form">
+            <form method="post">
+                {{ form | crispy }}
+                {% csrf_token %}
+                <!-- <hr class="my-4"> -->
+                <p class="lead">
+                    <input type="submit" class="btn btn-outline-info" value="Log-In">
+                </p>
+                <h6>Don't have an account? <a href="/signup">Register now</a></h6>
+            </form>
+        </div>
+    </div>
+</body>
+</html>

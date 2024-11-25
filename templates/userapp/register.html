@@ -1,0 +1,72 @@
+{% extends 'userapp/base.html' %}
+{% block parent_block %}
+
+    {% load crispy_forms_tags %}
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+          integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+
+    <style>
+        .form {
+            margin-left: 350px;
+            margin-top: 10px;
+        }
+
+        .errorlist {
+            color: #ff5858;
+        }
+
+        #id_email input:required {
+            border: 1px dashed red;
+        }
+    </style>
+
+
+    <div class="col-lg-5 form" id="hint_id_username">
+        <h1 style="text-align: center;">Register here</h1>
+        <form method="post">
+            <p>
+                <lable>Username:</lable>
+                {{ form.username }}
+            </p>
+            {% if error.username %}
+                <p>{{ error.username }}</p>
+            {% endif %}
+
+            <p>
+                <lable>Password:</lable>
+                {{ form.password }}
+            </p>
+            {% if error.password %}
+                <p>{{ error.password }}</p>
+            {% endif %}
+
+            <p>
+                <lable>Email:</lable>
+                {{ form.email }}
+            </p>
+            {% if error.email %}
+                <p>{{ error.email }}</p>
+            {% endif %}
+
+            <p>
+                <lable>First name:</lable>
+                {{ form.first_name }}
+            </p>
+            {% if error.first_name %}
+                <p>{{ error.first_name }}</p>
+            {% endif %}
+
+            <p>
+                <lable>Last Name:</lable>
+                {{ form.last_name }}
+            </p>
+            {% if error.last_name %}
+                <p>{{ error.last_name }}</p>
+            {% endif %}
+
+            {% csrf_token %}
+            <input type="submit" name="Register" value="Register" class="btn btn-info">
+            <h6>Already have an account? <a href="/accounts/login">Login Here</a></h6>
+        </form>
+    </div>
+{% endblock %}

@@ -1,0 +1,15 @@
+{% extends 'userapp/base.html' %}
+{% load crispy_forms_tags %}
+{% block parent_block %}
+
+    <div class="container" align="center">
+        <h1>Add a new Tag</h1>
+        <form method="post">
+            <table>
+                {{ form.as_table }}
+                {% csrf_token %}
+            </table>
+            <button type="submit" name="button" class="btn btn-success btn-md">Add</button>
+        </form>
+    </div>
+{% endblock %}

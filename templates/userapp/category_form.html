@@ -1,0 +1,27 @@
+{% extends 'userapp/base.html' %}
+{% load crispy_forms_tags %}
+{% block parent_block %}
+    <style>
+        .form {
+            {#margin: 25px 967px 0 1px;#}
+            {#border: 1px solid #c4baba; {#margin: 25px 967px 0 1px;#}
+            {#border: 1px solid #c4baba;#}
+        }
+        .mainContainer{
+            {#margin: 12px -106px 27px 100px;#}
+        }
+        #div_id_name{
+            width: 330px !important;
+        }
+    </style>
+    <div class="container">
+        <h2>Add/Update a Category</h2>
+        <form method="post">
+            <table id="div_id_name" class="form-group">
+                {{ form|crispy }}
+                {% csrf_token %}
+            </table>
+            <button type="submit" name="button" class="btn btn-secondary">Add</button>
+        </form>
+    </div>
+{% endblock %}
