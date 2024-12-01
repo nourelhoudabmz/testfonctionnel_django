@@ -6,7 +6,8 @@ from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.edge.service import Service
-
+from selenium.webdriver.support.ui import WebDriverWait
+from selenium.webdriver.support import expected_conditions as EC
 
 class TestAddProduct:
     def setup_method(self, method):
@@ -28,25 +29,25 @@ class TestAddProduct:
             EC.presence_of_element_located((By.ID, "id_product_name"))
         )
         product_name_field.click()
-        product_name_field.send_keys("Samsung A15")
+        product_name_field.send_keys("MacBook Air M2")
         time.sleep(2) 
         # 2. Ajouter une image
         image_field = self.driver.find_element(By.ID, "id_image")
-        image_field.send_keys("C:\\Users\\nourn\\OneDrive\\Images\\smartwatch.jpg")  # Remplacez par un chemin valide
+        image_field.send_keys("C:\\Users\\nourn\\OneDrive\\Images\\mac-book.webp")  # Remplacez par un chemin valide
         time.sleep(2) 
         # 3. Sélectionner une étiquette (tag)
         tags_dropdown = self.driver.find_element(By.ID, "id_tags")
-        tags_option = tags_dropdown.find_element(By.XPATH, "//option[. = 'Smartphone']")
+        tags_option = tags_dropdown.find_element(By.XPATH, "//option[. = 'Laptop']")
         tags_option.click()
         time.sleep(2) 
         # 4. Ajouter une description
         description_field = self.driver.find_element(By.ID, "id_description")
         description_field.click()
-        description_field.send_keys("Un smartphone haut de gamme avec écran AMOLED, 128 Go de stockage.")
+        description_field.send_keys("Écran 13.6 Liquid Retina LED IPS (2 560 x 1 664 pixels) - Processeur: Apple M2 (CPU 8 coeurs / GPU 8 coeurs / Neural Engine 16 coeurs) - Système d'exploitation: MacOS - Mémoire RAM: 8 Go - Disque Dur: 256 Go SSD avec Wi-Fi, Bluetooth, 2x Thunderbolt/USB 4, Prise casque 3,5 mm, Port de charge MagSafe 3 - Capteur Touch ID, Magic Keyboard rétroéclairé - Couleur: Silver - Garantie: 1 an.")
         time.sleep(2)  
         # 5. Sélectionner une catégorie
         category_dropdown = self.driver.find_element(By.ID, "id_category")
-        category_option = category_dropdown.find_element(By.XPATH, "//option[. = 'Electronics']")
+        category_option = category_dropdown.find_element(By.XPATH, "//option[. = 'Computers']")
         category_option.click()
         time.sleep(2) 
         # 6. Soumettre le formulaire

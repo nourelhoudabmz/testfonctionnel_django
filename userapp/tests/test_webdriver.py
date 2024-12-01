@@ -1,6 +1,6 @@
 from selenium import webdriver
 from selenium.webdriver.edge.service import Service
-
+import time
 # Spécifiez le chemin vers votre WebDriver
 service = Service("C:/webdriver/msedgedriver.exe")  # Remplacez par le chemin réel de msedgedriver.exe
 
@@ -11,4 +11,5 @@ driver = webdriver.Edge(service=service)
 driver.get("https://www.google.com")
 
 print("Test réussi : le navigateur s'est ouvert.")
+time.sleep(2)
 driver.quit()

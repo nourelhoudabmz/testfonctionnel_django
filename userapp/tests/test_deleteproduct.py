@@ -29,7 +29,7 @@ class TestTestdeleteproduct():
 
   
   def test_testdeleteproduct(self):
-    self.driver.get("http://127.0.0.1:8000/delete-product/6")
+    self.driver.get("http://127.0.0.1:8000/delete-product/15")
     self.driver.set_window_size(1272, 816)
     
     # Attendre que le bouton soit cliquable
@@ -37,4 +37,4 @@ class TestTestdeleteproduct():
         EC.element_to_be_clickable((By.NAME, "button"))
     )
     button.click()
-  time.sleep(2) 
+  time.sleep(3) 
